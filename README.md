@@ -85,37 +85,37 @@ This project develops a two-stage hybrid movie recommendation system using the T
 -Estimated time: ~5 minutes (initialization and data loading)
 -Reproducibility of Experiments
 4.**Experiment Workflow**
--Data Storage and Cleaning:
--Uploads tmdb_5000_movies.csv and tmdb_5000_credits.csv to HDFS.
--Cleans data using clean_data.py with PySpark: extracts genres, keywords, actors, and directors; removes nulls and duplicates.
--Recommendation Computation:
--Runs recommend.py:
--Recall Stage: Uses KNN with Euclidean distance to generate a 40-movie candidate set.
--Filtering Stage: Applies Gaussian year weights, rating weights, and popularity weights to select the top 5 recommendations.
+   -Data Storage and Cleaning:
+   -Uploads tmdb_5000_movies.csv and tmdb_5000_credits.csv to HDFS.
+   -Cleans data using clean_data.py with PySpark: extracts genres, keywords, actors, and directors; removes nulls and duplicates.
+   -Recommendation Computation:
+   -Runs recommend.py:
+   -Recall Stage: Uses KNN with Euclidean distance to generate a 40-movie candidate set.
+   -Filtering Stage: Applies Gaussian year weights, rating weights, and popularity weights to select the top 5 recommendations.
 5.**Visualization**:
--Executes visualize.py to generate metric plots and tables using Matplotlib.
--Execution Time
--Full workflow: ~30-40 minutes on recommended hardware
--Data cleaning: ~10-15 minutes
--Recommendation computation: ~15-20 minutes
--Visualization: ~5 minutes
--Expected Results and Evaluation
+   -Executes visualize.py to generate metric plots and tables using Matplotlib.
+   -Execution Time
+   -Full workflow: ~30-40 minutes on recommended hardware
+   -Data cleaning: ~10-15 minutes
+   -Recommendation computation: ~15-20 minutes
+   -Visualization: ~5 minutes
+   -Expected Results and Evaluation
 6.**Outputs**:
--Cleaned dataset: output/cleaned_data.csv
--Recommendation list: output/recommendations.csv (top 5 movies with scores)
--Figures:
-output/accuracy_plot.png (Precision and Recall histogram)
-output/diversity_plot.png (Genre and Director entropy bar chart)
-output/novelty_plot.png (Novelty percentile histogram)
+   -Cleaned dataset: output/cleaned_data.csv
+   -Recommendation list: output/recommendations.csv (top 5 movies with scores)
+   -Figures:
+-output/accuracy_plot.png (Precision and Recall histogram)
+-output/diversity_plot.png (Genre and Director entropy bar chart)
+-output/novelty_plot.png (Novelty percentile histogram)
 7.**Evaluation**:
-Precision: ~0.76, Recall: ~0.03 (Hybrid Model, see Table 2)
-Genre Entropy: ~2.29, Director Entropy: ~2.20 (see Table 3)
-Novelty: ~32.64 (see Table 4)
-Results may vary slightly due to random sampling in KNN.
+  -Precision: ~0.76, Recall: ~0.03 (Hybrid Model, see Table 2)
+  -Genre Entropy: ~2.29, Director Entropy: ~2.20 (see Table 3)
+  -Novelty: ~32.64 (see Table 4)
+  -Results may vary slightly due to random sampling in KNN.
 8.**Relation to Report Results**
-The artifact regenerates the results in Section 3.2.3 of the report:
-recommendations.csv matches the top-5 list format in the report.
-accuracy_plot.png replicates Figure 6 (histogram of Precision and Recall).
-diversity_plot.png matches Figure 7 (bar chart of entropy).
-novelty_plot.png corresponds to Figure 8 (novelty histogram).
-Matplotlib ensures figures are in the same format as the report, enabling direct comparison of reproducibility scope.
+-The artifact regenerates the results in Section 3.2.3 of the report:
+-recommendations.csv matches the top-5 list format in the report.
+-accuracy_plot.png replicates Figure 6 (histogram of Precision and Recall).
+-diversity_plot.png matches Figure 7 (bar chart of entropy).
+-novelty_plot.png corresponds to Figure 8 (novelty histogram).
+-Matplotlib ensures figures are in the same format as the report, enabling direct comparison of reproducibility scope.
